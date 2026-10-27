@@ -1,0 +1,17 @@
+% 不自行改写学校声明、不代签名。插入当批次官方表格/签名扫描件。
+\IfFileExists{front/title-page.pdf}{%
+  \includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{front/title-page.pdf}
+}{%
+  \sduPendingPage{扉页插入位置}{%
+    请将学校现行扉页填写、签名后保存为 \nolinkurl{front/title-page.pdf}。
+    再次编译时，该文件会自动替换本占位页。
+    研究生院已公开发布“2024版学位论文封面（扉页）”，请使用学校和学院认可的正式版本。}
+}
+\IfFileExists{front/declarations.pdf}{%
+  \includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{front/declarations.pdf}
+}{%
+  \sduPendingPage{原创性声明与论文使用授权声明}{%
+    请使用培养单位提供的现行声明原文并完成所需签名，保存为
+    \nolinkurl{front/declarations.pdf}。该文件可包含多页。
+    此模板不生成学校声明原文，也不生成作者或导师签名。}
+}

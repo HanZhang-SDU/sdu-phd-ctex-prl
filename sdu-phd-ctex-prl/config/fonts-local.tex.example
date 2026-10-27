@@ -1,0 +1,10 @@
+% 自定义字体路径方案。复制为 fonts-local.tex，并改用 fonts=custom。
+% 字体必须自行合法取得。本项目不附带任何字体文件。
+% 以下以系统可识别的字体名演示；字体文件方式见 README。
+\setmainfont{Times New Roman}
+\setCJKmainfont[AutoFakeBold=2.2]{SimSun}
+\setCJKsansfont[AutoFakeBold=2.2]{SimHei}
+\setCJKmonofont{SimSun}
+\setCJKfamilyfont{song}[AutoFakeBold=2.2]{SimSun}
+\setCJKfamilyfont{hei}[AutoFakeBold=2.2]{SimHei}
+\setCJKfamilyfont{kai}{KaiTi}

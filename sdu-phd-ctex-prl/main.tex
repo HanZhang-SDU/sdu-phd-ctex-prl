@@ -1,0 +1,54 @@
+% !TeX program = xelatex
+% !BIB program = biber
+% 正式字体入口：SimSun + SimHei + Times New Roman。
+% 没有这些字体时使用 preview.tex，不能把预览字体默认为提交字体。
+\providecommand{\SDUFontMode}{strict}
+\providecommand{\SDUBibStyle}{prl}
+\documentclass[fonts=\SDUFontMode,bibstyle=\SDUBibStyle,twoside,openany]{sduthesis}
+\input{config/metadata}
+\input{config/macros}
+\addbibresource{references.bib}
+% 要显示论文标题，取消下一行注释；不修改 .bib 文件本身。
+% \ExecuteBibliographyOptions{articletitle=true}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    }
+
+
+\begin{document}
+\pagestyle{empty}
+\pagenumbering{gobble}
+\sduMakeCover
+\sduIfBlindTF{}{\input{front/official-pages}}
+
+\frontmatter
+\hypersetup{pageanchor=true}
+\input{front/abstract-cn}
+\input{front/abstract-en}
+\tableofcontents
+\sduEnglishContents
+% 按学院要求决定是否需要图表目录：
+% \listoffigures
+% \listoftables
+\input{front/symbols}
+
+\mainmatter
+\include{chapters/01-introduction}
+\include{chapters/02-methods}
+\include{chapters/03-conclusion}
+
+% 参考文献置于正文后；附录的位置可按培养单位要求调整。
+\printbibliography[section=0,heading=sdubib,title={参考文献}]
+\appendix
+\include{back/appendix}
+\backmatter
+\sduIfBlindTF{}{%
+  \include{back/acknowledgements}
+  \include{back/publications}
+  \input{back/review-page}
+}
+\end{document}

@@ -1,0 +1,43 @@
+\bichapter{引言}{Introduction}\label{chap:intro}
+\bisection{研究背景与文献综述}{Background and literature review}
+% 以下内容只用于测试排版；替换成自己的学术论述。
+本章展示正文的基本排版。中文、英文和数字应在同一段落内自然衔接，例如
+Standard Model、$\sqrt{s}=13\,\TeV$ 以及数值 $0.125$。数学量使用数学模式，
+单位采用正体，正文不通过手工添加空格实现对齐。
+
+这里用三篇真实文献测试连续编号引用，先分别引用
+\cite{Higgs1964}、\cite{Englert1964} 和 \cite{Weinberg1967}。
+同一命令合并引用三条文献时显示为压缩的方括号编号
+\cite{Higgs1964,Englert1964,Weinberg1967}。
+按不同顺序输入已有条目仍将按编号排列
+\cite{Weinberg1967,Higgs1964,Englert1964}。
+这些引用只用于演示样式，不表示已经完成本章的文献综述。
+
+\bisection{本文结构}{Organization of the dissertation}
+第~\ref{chap:methods}~章演示数学公式、图表和交叉引用；
+第~\ref{chap:conclusion}~章给出总结部分的写作位置。
+正式写作时，应把章节结构与自己的研究内容对应，而不是保留本模板说明。
+
+\bisubsection{引用命令}{Citation commands}
+正文通常采用 \verb|\cite{key}| 或 \verb|\autocite{key}|。
+后者在本模板中同样是平排方括号，例如 \autocite{Higgs1964}。
+引用带页码时可使用 \verb|\cite[508]{Higgs1964}|，效果为
+\cite[508]{Higgs1964}。文献表按首次引用顺序排列。
+
+作者姓名参与句子时可使用 \verb|\textcite|：
+\textcite{Weinberg1967} 展示了作者加编号的引用形式。
+只有在学院明确要求上标时，才改用本模板提供的
+\verb|\supcite{key}|，例如示意引用\supcite{Englert1964}。
+这不是默认 PRL-like 行内风格。
+
+\bisubsection{长段落与中英文混排}{Long paragraphs and bilingual typography}
+正文中不应使用连串空格或强制换行命令控制每一行的宽度。
+段落之间以空行分隔；模板在排版时统一设置首行缩进和段落间距。
+英文短语 polarization observables 与中文之间的间距交由中文排版机制处理。
+如果一个段落含有高度较大的行内分式，可以改用展示公式，或对该段单独调整行距，
+避免在严格固定的行高内把上下标挤压到相邻行。
+
+这段文字用于继续检查页面的横向排列与行间距。模板的目标是把可复用的格式设置
+集中到文档类，把论文内容保留在章节文件中。修改研究内容时不必反复调整字体，
+调整样式时也不必逐段修改正文。公式、文献和章节编号应由程序生成，避免人工维护
+造成前后不一致。所有模板示例、占位标题和占位页面都应在最终提交前检查并删除。

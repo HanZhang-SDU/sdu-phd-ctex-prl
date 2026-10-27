@@ -1,0 +1,62 @@
+\bichapter{理论框架与排版示例}{Theoretical framework and typesetting examples}
+\label{chap:methods}
+\bisection{数学公式}{Mathematical expressions}
+下面的式子仅展示常见的公式排版，不给出某个具体过程的数值预测。
+例如，把一个函数写为形式展开：
+\begin{equation}
+ f(\vect{x};\vect{c})=f_0(\vect{x})+
+ \sum_i c_i f_i(\vect{x})+
+ \sum_{i,j}c_i c_j f_{ij}(\vect{x}).
+ \label{eq:expansion}
+\end{equation}
+使用 \verb|\eqref| 可得到式~\eqref{eq:expansion} 的编号。
+不必在正文中手工输入括号或编号。
+\begin{align}
+ \langle O\rangle &= \int O(x)\,p(x)\,\dd x,\\
+ \operatorname{Var}(O) &= \langle O^2\rangle-\langle O\rangle^2.
+\end{align}
+统计方法类文献的条目也可包含电子文章号和 arXiv 字段，
+例如 \cite{Cowan2011}。完整题名仍保存在文献数据库中，即使当前风格不打印题名。
+
+\bisection{图与图注}{Figures and captions}
+图~\ref{fig:placeholder} 是无外部数据依赖的占位示意图，不能当作研究结果使用。
+真实插图优先使用适合打印的矢量 PDF，位图则应检查分辨率。
+\begin{figure}[htbp]
+ \centering
+ \begin{tikzpicture}[x=1cm,y=1cm]
+  \draw[->] (0,0)--(8,0) node[right] {$x$};
+  \draw[->] (0,0)--(0,2.7) node[above] {$f(x)$};
+  \draw[thick,domain=0:7.4,samples=80] plot (\x,{0.35+1.9*exp(-0.18*(\x-3.5)*(\x-3.5))});
+  \node[font=\small] at (5.8,2.45) {示意曲线（非研究数据）};
+ \end{tikzpicture}
+ \caption{图注位于图下方；图中曲线仅用于演示排版。}
+ \label{fig:placeholder}
+\end{figure}
+
+\bisection{表与表注}{Tables and captions}
+表~\ref{tab:example} 使用三线表，并把表题放在表格上方。
+示例中的数值为排版占位值，不对应实验或模拟数据。
+\begin{table}[htbp]
+ \centering
+ \caption{表格排版示例；全部数值仅为占位值。}
+ \label{tab:example}
+ \begin{tabular}{lrrr}
+  \toprule
+  配置 & 参数一 & 参数二 & 参数三 \\
+  \midrule
+  示例 A & 1.00 & 0.10 & 10.0 \\
+  示例 B & 2.00 & 0.20 & 20.0 \\
+  示例 C & 3.00 & 0.30 & 30.0 \\
+  \bottomrule
+ \end{tabular}
+\end{table}
+
+\bisection{定理与脚注}{Theorems and footnotes}
+\begin{theorem}
+对于实对称正定矩阵 $A$ 和非零实向量 $x$，有 $x^{\mathsf{T}}Ax>0$。
+\end{theorem}
+\begin{proof}
+这是实对称正定矩阵定义的直接表述，此处仅演示定理与证明环境。
+\end{proof}
+脚注也保持独立排版。\footnote{这是一条脚注示例，不是参考文献条目。}
+长公式推导可以放在附录~\ref{app:derivation} 中。

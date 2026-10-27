@@ -1,0 +1,9 @@
+% 按学院当批次要求放置评阅及答辩情况表；没有时保留明确占位提示。
+\IfFileExists{back/review-and-defense.pdf}{%
+  \includepdf[pages=-,pagecommand={\thispagestyle{empty}}]{back/review-and-defense.pdf}
+}{%
+  \sduchapterstar{学位论文评阅及答辩情况}{Review and defense record}
+  此处预留评阅及答辩情况表的位置。请使用学院当批次正式表格，
+  保存为 \nolinkurl{back/review-and-defense.pdf} 后重新编译。
+  如学院要求此表置于其他位置，请调整 \texttt{main.tex} 中的插入顺序。
+}

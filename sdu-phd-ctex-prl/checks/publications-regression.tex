@@ -1,0 +1,32 @@
+% Run from project root:
+% latexmk -r latexmkrc -xelatex -jobname=check-publications checks/publications-regression.tex
+\documentclass[fonts=portable,bibstyle=prl,oneside,openany]{sduthesis}
+\addbibresource{references.bib}
+\begin{document}
+\let\RegressionOriginalCite\cite
+\mainmatter
+Before publications: \cite{Higgs1964}.
+\begin{sdupublications}[references.bib]
+\cite{Weinberg1967,Cowan2011,Higgs1964}
+\cite{Weinberg1967}
+\end{sdupublications}
+\ifx\cite\RegressionOriginalCite
+  \typeout{SDU-REGRESSION: original cite command restored}
+\else
+  \errmessage{Publication list leaked its cite definition}
+\fi
+\iftoggle{bbx:articletitle}
+  {\errmessage{Publication title setting leaked to the main bibliography}}
+  {\typeout{SDU-REGRESSION: original article-title setting restored}}
+\clearpage
+After publications: \cite{Englert1964}.
+Repeat first body citation: \cite{Higgs1964}.
+\printbibliography[section=0,heading=sdubib,title={参考文献}]
+\begin{sdupublications}
+\cite{publication-example-2,publication-example-1}
+\cite{publication-example-2}
+\end{sdupublications}
+\begin{sdupublications}
+Empty-list test.
+\end{sdupublications}
+\end{document}
